@@ -13,6 +13,9 @@ class SodaMachine :
 
     def __init__(self):
 
+        if SodaMachine.__instance is not None :
+            raise Exception ("Use get_instance() to retreive the object's instance")
+            
         self.items = [
             Item("Coke", 20, 5),
             Item("Sprite", 15, 3),
@@ -20,16 +23,13 @@ class SodaMachine :
         ]
 
         self.money_inserted = 0
-        
-        if SodaMachine.__instance is not None :
-            raise Exception ("Use get_instance() to retreive the object's instance")
-        
-        # @staticmethod
-        def get_instance() -> SodaMachine :
-            if SodaMachine.__instance is None :
-                print ("creation du service")
-                SodaMachine.__instance = SodaMachine()
-            return SodaMachine.__instance
+    
+    @staticmethod
+    def get_instance() -> SodaMachine :
+        if SodaMachine.__instance is None :
+            print ("creation du service")
+            SodaMachine.__instance = SodaMachine()
+        return SodaMachine.__instance
             
     def display_items (self) :
         for code, item in enumerate(self.items, start = 1):
