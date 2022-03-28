@@ -27,7 +27,6 @@ class SodaMachine :
     @staticmethod
     def get_instance() :
         if SodaMachine.__instance is None :
-            print ("creation du service")
             SodaMachine.__instance = SodaMachine()
         return SodaMachine.__instance
             
