@@ -8,7 +8,7 @@ from soda_machine import SodaMachine
 
 def main():
 
-    soda_machine = SodaMachine()
+    soda_machine = SodaMachine.__call__()
     soda_machine.display_items()
 
     while True:
@@ -17,7 +17,7 @@ def main():
         except ValueError:
             print("\nNo such soda")
             continue # keep asking
-        if user_selection not in range(1, len(soda_machine.items)+1):
+        if user_selection not in range(1, len(soda_machine.items)+1) :
             print("\nNo such soda")
             continue
         else :
@@ -36,7 +36,8 @@ def main():
                 break
     print(f"\n Giving \"{item.name}\" out.")
     print(f"Returning {soda_machine.money_inserted - item.price:.0f} NOK to customer.\n")
-    item.inventory -= 1
+    item.inventory = 1
+
     
     while item.inventory != 0 :        
         main()
