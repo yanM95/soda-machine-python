@@ -8,7 +8,7 @@ from soda_machine import SodaMachine
 
 def main():
 
-    soda_machine = SodaMachine()
+    soda_machine = SodaMachine.get_instance()
     soda_machine.display_items()
 
     while True:
@@ -34,11 +34,11 @@ def main():
                 continue
             else:
                 break
-    print(f"\n Giving \"{item.name}\" out.")
-    print(f"Returning {soda_machine.money_inserted - item.price:.0f} NOK to customer.\n")
+    print(f"\n  Giving \"{item.name}\" out.")
+    print(f"  Returning {soda_machine.money_inserted - item.price:.0f} NOK to customer.\n")
     item.inventory -= 1
-
-    while item.inventory != 0 :        
+    
+    if item.inventory != 0 :        
         main()
 
     return 0
