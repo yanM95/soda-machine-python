@@ -25,7 +25,7 @@ class SodaMachine :
         self.money_inserted = 0
     
     @staticmethod
-    def get_instance() -> SodaMachine :
+    def get_instance() :
         if SodaMachine.__instance is None :
             print ("creation du service")
             SodaMachine.__instance = SodaMachine()
