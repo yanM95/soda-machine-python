@@ -37,6 +37,7 @@ def main():
     print(f"\n  Giving \"{item.name}\" out.")
     print(f"  Returning {soda_machine.money_inserted - item.price:.0f} NOK to customer.\n")
     item.inventory -= 1
+    soda_machine.money_inserted = 0
     
     if item.inventory != 0 :        
         main()
