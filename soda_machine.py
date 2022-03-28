@@ -5,10 +5,9 @@ Created on Fri Mar 25 18:55:56 2022
 @author: yannis_montreer
 """
 from item import Item
+from Singleton import Singleton_base
 
-class SodaMachine:
-    
-    _instance = None
+class SodaMachine (Singleton_base):
 
     def __init__(self):
 
@@ -28,10 +27,5 @@ class SodaMachine:
         if money <= 0:
             raise ValueError
         self.money_inserted += money
-    
 
-    def __new__(class_, *args, **kwargs):
-        if not isinstance(class_._instance, class_):
-            class_._instance = object.__new__(class_, *args, **kwargs)
-        return class_._instance
         
